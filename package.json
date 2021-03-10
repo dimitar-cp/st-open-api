@@ -1,6 +1,6 @@
 {
   "name": "st-open-api",
-  "version": "1.3.22",
+  "version": "1.4.0-0",
   "publishConfig": {
     "access": "public"
   },
@@ -18,7 +18,8 @@
   "scripts": {
     "prebuild": "npx st-rm-rf dist",
     "build": "tsc",
-    "postbuild": "npx st-cp package.json README.md static schema template banner.txt dist"
+    "postbuild": "npx st-cp package.json README.md static schema template banner.txt dist",
+    "build:run": "yarn build && chmod +x ./dist/cli.js && rm -rf ./tmp && mkdir -p ./tmp && ./dist/cli.js -o ./tmp -ty -s ../efdb-backend/tmp.json"
   },
   "engines": {
     "node": ">=10"
